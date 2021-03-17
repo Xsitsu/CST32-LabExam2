@@ -1,5 +1,7 @@
 #include "cAssignNode.h"
 
+#include "lex.h"
+
 cAssignNode::cAssignNode(cExprNode *expr, std::string varName) : cStmtNode()
 {
     this->m_varName = varName;
@@ -13,5 +15,5 @@ cExprNode* cAssignNode::GetExpr()
 
 void cAssignNode::Traverse()
 {
-    // TODO: do the assign
+    runtime->SetVariable(this->m_varName, this->GetExpr()->GetValue());
 }
