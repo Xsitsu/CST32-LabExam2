@@ -22,6 +22,10 @@
     int             int_val;
     float           float_val;
     std::string*    str_val;
+    cProgramNode*   prog_node;
+    cStmtsNode*     stmts_node;
+    cStmtNode*      stmt_node;
+    cExprNode*      expr_node;
     }
 
 %{
