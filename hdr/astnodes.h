@@ -9,3 +9,4 @@
 #include "cAssignNode.h"
 #include "cQuitNode.h"
 #include "cFloatExprNode.h"
+#include "cVarRefNode.h"
