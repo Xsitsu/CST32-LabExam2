@@ -14,6 +14,8 @@ class cFloatExprNode : public cExprNode
 
         virtual float GetValue() { return m_value; }
 
+        virtual void Traverse() {}
+
     protected:
         float m_value;
 };

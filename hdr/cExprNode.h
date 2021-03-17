@@ -8,5 +8,5 @@ protected:
 
 public:
     cExprNode();
-    float GetValue();
+    virtual float GetValue();
 };
