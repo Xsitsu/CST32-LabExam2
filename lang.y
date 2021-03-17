@@ -67,7 +67,8 @@ stmts:      stmts stmt          { $$ = $1; $$->Insert($2); }
         |   stmt                { $$ = new cStmtsNode($1); }
 
 stmt:       expr '!'            { $$ = new cPrintNode($1); }
-        |   expr '@' IDENTIFIER { $$ = new cAssignNode($1, (*$3)); }
+        |   expr '@' IDENTIFIER ';'
+                                { $$ = new cAssignNode($1, (*$3)); }
         |   QUIT                { $$ = new cQuitNode(); }
         |   error ';'           {}
 
