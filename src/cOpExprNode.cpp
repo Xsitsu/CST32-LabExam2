@@ -7,12 +7,12 @@ cOpExprNode::cOpExprNode(cExprNode *left, cExprNode *right, int op_code) : cExpr
     this->AddChild(right);
 }
 
-cExprNode cOpExprNode::*GetLeft()
+cExprNode* cOpExprNode::GetLeft()
 {
     return static_cast<cExprNode*>(this->GetChild(0));
 }
 
-cExprNode cOpExprNode::*GetRight()
+cExprNode* cOpExprNode::GetRight()
 {
     return static_cast<cExprNode*>(this->GetChild(1));
 }
