@@ -15,7 +15,7 @@ void cPrintNode::Traverse()
     this->cAstNode::Traverse();
 }
 
-cExprNode cPrintNode::*GetExpr()
+cExprNode* cPrintNode::GetExpr()
 {
     return static_cast<cExprNode*>(this->GetChild(0));
 }
