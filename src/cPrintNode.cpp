@@ -1,6 +1,6 @@
 #include "cPrintNode.h"
 
-#include <iostream>
+#include <stdio.h>
 
 #include "lex.h"
 
@@ -11,7 +11,7 @@ cPrintNode::cPrintNode(cExprNode *expr) : cStmtNode()
 
 void cPrintNode::Traverse()
 {
-    std::cout << this->GetExpr()->GetValue() << std::endl;
+    printf("%f\n", this->GetExpr()->GetValue());
     this->cAstNode::Traverse();
 }
 
