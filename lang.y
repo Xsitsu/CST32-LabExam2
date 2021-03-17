@@ -60,8 +60,8 @@ program: stmts                  { $$ = new cProgramNode($1);
 stmts:      stmts stmt          { $$ = $1; $$->Insert($2); }
         |   stmt                { $$ = new cStmtsNode($1); }
 
-stmt:       expr '!'            { $$ = $1; }
-        |   POP '@' IDENTIFIER  { $$ = new cPopNode(*($3)); }
+stmt:       expr '!'            { $$ = new cPrintNode($1); }
+        |   expr '@' IDENTIFIER { $$ = new cAssignNode($1, $3); }
         |   QUIT                { $$ = new cQuitNode(); }
         |   error ';'           {}                      
 
@@ -73,6 +73,7 @@ term:       term ':' fact      { $$ = new cIntExprNode($1); }
 
 fact:       INT_VAL            { $$ = $1; }
         |   FLOAT_VAL          { $$ = $1; }
+        |   IDENTIFIER         { $$ = $1; }
 
 %%
 
