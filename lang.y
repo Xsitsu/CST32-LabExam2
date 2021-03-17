@@ -65,11 +65,14 @@ stmt:       expr '!'            { $$ = $1; }
         |   QUIT                { $$ = new cQuitNode(); }
         |   error ';'           {}                      
 
-expr:       INT_VAL             { $$ = new cIntExprNode($1); }
-        |   '+'                 { $$ = new cOpExprNode('+'); }
-        |   '-'                 { $$ = new cOpExprNode('-'); }
-        |   '*'                 { $$ = new cOpExprNode('*'); }
-        |   '/'                 { $$ = new cOpExprNode('/'); }
+expr:       expr '$' term      { $$ = new cIntExprNode($1); }
+        |   expr '^' term      { $$ = new cOpExprNode('+'); }
+
+term:       term ':' fact      { $$ = new cIntExprNode($1); }
+        |   term '#' fact      { $$ = new cOpExprNode('+'); }
+
+fact:       INT_VAL            { $$ = $1; }
+        |   FLOAT_VAL          { $$ = $1; }
 
 %%
 
