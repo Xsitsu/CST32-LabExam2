@@ -71,11 +71,11 @@ stmt:       expr '!'            { $$ = new cPrintNode($1); }
         |   QUIT                { $$ = new cQuitNode(); }
         |   error ';'           {}                      
 
-expr:       expr '$' term      { $$ = new cIntExprNode($1); }
-        |   expr '^' term      { $$ = new cOpExprNode('+'); }
+expr:       expr '$' term      { $$ = new cOpExprNode($1, $3, '$'); }
+        |   expr '^' term      { $$ = new cOpExprNode($1, $3, '^'); }
 
-term:       term ':' fact      { $$ = new cIntExprNode($1); }
-        |   term '#' fact      { $$ = new cOpExprNode('+'); }
+term:       term ':' fact      { $$ = new cOpExprNode($1, $3, ':'); }
+        |   term '#' fact      { $$ = new cOpExprNode($1, $3, '#'); }
 
 fact:       INT_VAL            { $$ = new cFloatExprNode($1); }
         |   FLOAT_VAL          { $$ = new cFloatExprNode($1); }
