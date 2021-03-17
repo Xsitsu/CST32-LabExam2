@@ -37,7 +37,7 @@ number                      [0-9]
 
 
  /*Punctuation*/
-[\!\@\:\#\$\^;]                 {
+[()\!\@\:\#\$\^;]               {
                                     DO_RETURN(yytext[0]);
                                 }
 
