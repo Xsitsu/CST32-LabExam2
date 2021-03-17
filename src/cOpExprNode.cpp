@@ -20,7 +20,7 @@ cExprNode* cOpExprNode::GetRight()
 
 float cOpExprNode::GetValue()
 {
-    float lval = this->GetLeft()->Getvalue();
+    float lval = this->GetLeft()->GetValue();
     float rval = this->GetRight()->GetValue();
 
     if (this->m_op_code == '$')
