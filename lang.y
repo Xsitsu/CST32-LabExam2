@@ -48,6 +48,8 @@
 %type <stmts_node> stmts
 %type <stmt_node> stmt
 %type <expr_node> expr
+%type <expr_node> term
+%type <expr_node> fact
 
 %%
 
