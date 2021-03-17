@@ -19,6 +19,6 @@ public:
 
     virtual float GetValue()
     {
-        return runtime.GetVariable(this->m_varName);
+        return runtime->GetVariable(this->m_varName);
     }
 };
