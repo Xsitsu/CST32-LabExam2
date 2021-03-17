@@ -42,7 +42,7 @@ number                      [0-9]
                                 }
 
  /*Keywords*/
-"quit"                           DO_RETURN(END);
+"quit"                           DO_RETURN(QUIT);
 
 
  /*Others*/
