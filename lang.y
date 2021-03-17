@@ -77,8 +77,8 @@ expr:       expr '$' term      { $$ = new cIntExprNode($1); }
 term:       term ':' fact      { $$ = new cIntExprNode($1); }
         |   term '#' fact      { $$ = new cOpExprNode('+'); }
 
-fact:       INT_VAL            { $$ = $1; }
-        |   FLOAT_VAL          { $$ = $1; }
+fact:       INT_VAL            { $$ = new cFloatExprNode($1); }
+        |   FLOAT_VAL          { $$ = new cFloatExprNode($1); }
         |   IDENTIFIER         { $$ = $1; }
 
 %%
