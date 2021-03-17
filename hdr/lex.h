@@ -1,6 +1,7 @@
 #pragma once
 
 #include "cAstNode.h"
+#include "Runtime.h"
 
 int yyparse();                          // parsing function
 int yylex();                            // scanning function
