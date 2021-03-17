@@ -1,6 +1,7 @@
 #pragma once
 
 #include "cStmtNode.h"
+#include "cExprNode.h"
 
 #include <string>
 
