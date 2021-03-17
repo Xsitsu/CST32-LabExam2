@@ -22,7 +22,7 @@
     int             int_val;
     float           float_val;
     std::string*    str_val;
-    cProgramNode*   prog_node;
+    cProgramNode*   program_node;
     cStmtsNode*     stmts_node;
     cStmtNode*      stmt_node;
     cExprNode*      expr_node;
@@ -41,6 +41,7 @@
 %token <int_val>    INT_VAL
 %token <float_val>  FLOAT_VAL
 
+%token QUIT
 %token JUNK_TOKEN
 
 %type <program_node> program
@@ -49,7 +50,6 @@
 %type <expr_node> expr
 
 %%
-
 
 
 
