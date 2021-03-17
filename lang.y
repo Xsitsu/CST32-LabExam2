@@ -73,9 +73,11 @@ stmt:       expr '!'            { $$ = new cPrintNode($1); }
 
 expr:       expr '$' term      { $$ = new cOpExprNode($1, $3, '$'); }
         |   expr '^' term      { $$ = new cOpExprNode($1, $3, '^'); }
+        |   term               { $$ = $1; }
 
 term:       term ':' fact      { $$ = new cOpExprNode($1, $3, ':'); }
         |   term '#' fact      { $$ = new cOpExprNode($1, $3, '#'); }
+        |   fact               { $$ = $1; }
 
 fact:       '(' expr ')'       { $$ = $2; }
         |   INT_VAL            { $$ = new cFloatExprNode($1); }
