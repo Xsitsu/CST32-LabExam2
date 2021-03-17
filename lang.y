@@ -67,9 +67,9 @@ stmts:      stmts stmt          { $$ = $1; $$->Insert($2); }
         |   stmt                { $$ = new cStmtsNode($1); }
 
 stmt:       expr '!'            { $$ = new cPrintNode($1); }
-        |   expr '@' IDENTIFIER { $$ = new cAssignNode($1, $3); }
+        |   expr '@' IDENTIFIER { $$ = new cAssignNode($1, (*$3)); }
         |   QUIT                { $$ = new cQuitNode(); }
-        |   error ';'           {}                      
+        |   error ';'           {}
 
 expr:       expr '$' term      { $$ = new cOpExprNode($1, $3, '$'); }
         |   expr '^' term      { $$ = new cOpExprNode($1, $3, '^'); }
@@ -82,7 +82,7 @@ term:       term ':' fact      { $$ = new cOpExprNode($1, $3, ':'); }
 fact:       '(' expr ')'       { $$ = $2; }
         |   INT_VAL            { $$ = new cFloatExprNode($1); }
         |   FLOAT_VAL          { $$ = new cFloatExprNode($1); }
-        |   IDENTIFIER         { $$ = new cVarRefNode($1); }
+        |   IDENTIFIER         { $$ = new cVarRefNode((*$1)); }
 
 %%
 
